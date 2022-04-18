@@ -9,9 +9,9 @@ public class HelloController {
 
 //    ON VISIT TO /HELLO = RUN STRING HELL()
     @GetMapping("/hello")
-    @ResponseBody
+//    @ResponseBody
     public String hello(){
-        return "Hello from Spring!";
+        return "hello";
     }
 
 
@@ -31,18 +31,21 @@ public class HelloController {
 
 
     @GetMapping("/hello/{name}")
+    @ResponseBody
     public String sayHello(@PathVariable String name, Model model) {
         model.addAttribute("name", name);
-        return "hello";
+        return "hello " + name;
     }
 
 
     @GetMapping("/join")
+    @ResponseBody
     public String showJoinForm() {
         return "join";
     }
 
     @PostMapping("/join")
+    @ResponseBody
     public String joinCohort(@RequestParam(name = "cohort") String cohort, Model model) {
         model.addAttribute("cohort", "Welcome to " + cohort + "!");
         return "join";
