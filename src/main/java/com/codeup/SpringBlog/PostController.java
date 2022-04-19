@@ -11,18 +11,23 @@ import java.util.List;
 public class PostController {
 
 
-
     //    MAKE INDEX THAT WILL SHOW ALL POSTS
-    @GetMapping("/posts")
+    @GetMapping("/posts/index")
     public String postsIndex(Model model) {
-        List<Post> posts = new ArrayList<Post>();
-//        posts.add();
+        List<Post> posts = new ArrayList<>();
+        model.addAttribute("posts", posts);
+        posts.add(new Post(
+                "Post Title1",
+                "Post Body1"));
+        posts.add(new Post(
+                "Post Title2",
+                "Post Body2"));
         return "posts/index";
     }
 
     //    MAKE SHOW THAT WILL SHOW INDIVIDUAL POSTS
 //    WHEN POST IS PICKED FROM VIEW (give href with integer in .html), REDIRECT TO POSTS/SHOW, THEN display post info on .html
-    @GetMapping( "/posts/post1")
+    @GetMapping("/posts/show")
     public String postsShow(Model model) {
         model.addAttribute("post1", new Post(
                 "Individual Post Title",
@@ -31,19 +36,4 @@ public class PostController {
         return "posts/show";
     }
 }
-
-
-//    @RequestMapping(path = "/posts/create", method = RequestMethod.GET)
-//    @ResponseBody
-//    public String viewForm() {
-//        return "View form for creating post";
-//    }
-//
-//
-//    @RequestMapping(path = "/posts/create", method = RequestMethod.POST)
-//    @ResponseBody
-//    public String createPost(){return "Create new post";}
-//    {
-
-//    }
 
