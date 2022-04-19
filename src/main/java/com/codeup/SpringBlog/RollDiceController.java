@@ -3,23 +3,31 @@ package com.codeup.SpringBlog;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class RollDiceController {
 
     @GetMapping("/roll-dice")
-    public String welcome() {
+    public String landing() {
         return "roll-dice";
     }
 
-    @PostMapping("/roll-dice")
-    public String diceNumber(@RequestParam(name = "numberGuess") String numberGuess, Model model) {
-        model.addAttribute("numberGuess", "You guessed " + numberGuess + "!");
+
+    @GetMapping("/roll-dice/{pick}")
+    public String rollDice(@PathVariable Integer pick, Model model) {
+        model.addAttribute("pick", pick);
+        model.addAttribute("random", (int)(Math.random()*((6-1)+1))+1);
         return "roll-dice";
     }
+
+
+
+
+
+
+
+
+
 
 }

@@ -5,18 +5,55 @@
     <title>Rolling Dice</title>
 </head>
 <body>
-<nav th:include="nav :: navbar">
+<nav th:include="nav :: dice-navbar">
     nav-text
 </nav>
 
-<form action="/roll-dice" method="post">
-    <input type="text" name="numberGuess" id="numberGuess-ip" class="field" />
-    <button>Enter your guess</button>
-</form>
+<h1>Pick a number</h1>
+<ul>
+    <li><a href="/roll-dice/1">1</a></li>
+    <li><a href="/roll-dice/2">2</a></li>
+    <li><a href="/roll-dice/3">3</a></li>
+    <li><a href="/roll-dice/4">4</a></li>
+    <li><a href="/roll-dice/5">5</a></li>
+    <li><a href="/roll-dice/6">6</a></li>
+</ul>
+<br>
 
 
-<span th:text="${numberGuess}"></span>
 
+<!--<h1>You picked #<span th:text="${pick}"></span></h1>-->
+<!--<h1>The Random # was<span th:text="${random}"></span></h1>-->
+
+
+<!--<h1><span th:if="${pick == random}">Lucky guess!</span></h1>-->
+<!--<h1><span th:if="${pick != random}">Better Luck next time...</span></h1>-->
+
+
+
+
+
+<div th:switch="${pick}">
+    <h1 th:case="null">You haven't picked a number yet..</h1>
+    <h1 th:case="${pick}">You picked #<span th:text="${pick}"></span></h1>
+</div>
+<br>
+
+
+<div th:switch="${pick}">
+    <h1 th:case="null">Random # will be shown here after pick</h1>
+    <h1 th:case="${pick}">The Random # was <span th:text="${random}"></span></h1>
+</div>
+<br>
+
+
+<div>
+    <h1>
+        <span th:if="${pick == null}">Pick a number to see if you're correct</span>
+        <span th:if="${pick == random}">Luck Guess!</span>
+        <span th:if="${pick != random}">Better luck next time...</span>
+    </h1>
+</div>
 
 </body>
 </html>
