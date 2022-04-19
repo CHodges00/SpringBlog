@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rolling Dice</title>
+</head>
+<body>
+<nav th:include="nav :: navbar">
+    nav-text
+</nav>
+
+<form action="/roll-dice" method="post">
+    <input type="text" name="numberGuess" id="numberGuess-ip" class="field" />
+    <button>Enter your guess</button>
+</form>
+
+
+<span th:text="${numberGuess}"></span>
+
+
+</body>
+</html>
