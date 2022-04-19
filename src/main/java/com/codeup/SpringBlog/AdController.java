@@ -19,10 +19,10 @@ public class AdController {
         return "ads/adPage";
     }
 
-    @GetMapping("/ad/single")
-    public String getIndividual(Model model){
-//        model.addAttribute("search", search);
-        model.addAttribute("ad", adDao.findById(1L));
+    @GetMapping("/ad/{search}")
+    public String getIndividual(@PathVariable String search,  Model model){
+        model.addAttribute("search", search);
+        model.addAttribute("ad", adDao.findByTitle(search));
         return "ads/each";
     }
 

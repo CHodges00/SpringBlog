@@ -5,10 +5,10 @@
     <title>Ad</title>
 </head>
 <body>
-<h1>Ad page!</h1>
+<h1>All Ads page!</h1>
 
 <div th:each="ad : ${ads}">
-    <h1 th:text="${ad.id}"></h1>
+    <a th:href="@{/ad/{id}(id=${ad.title})}"><h3>See this post by itself</h3></a>
     <h1 th:text="${ad.title}"></h1>
     <p th:text="${ad.description}"></p>
     <br>

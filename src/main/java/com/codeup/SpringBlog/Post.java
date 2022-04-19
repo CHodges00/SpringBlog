@@ -1,9 +1,18 @@
 package com.codeup.SpringBlog;
 
+import javax.persistence.*;
+
+@Entity
 public class Post {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
+    @Column(nullable = false, length = 50)
     private String title;
+
+    @Column(nullable = false)
     private String body;
 
     public String getTitle() {
@@ -30,5 +39,11 @@ public Post(String title, String body){
 }
 
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 }
