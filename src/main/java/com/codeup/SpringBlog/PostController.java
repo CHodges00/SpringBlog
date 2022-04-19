@@ -11,18 +11,19 @@ import java.util.List;
 public class PostController {
 
 
+
     //    MAKE INDEX THAT WILL SHOW ALL POSTS
     @GetMapping("/posts")
-    public String postsIndex() {
-
+    public String postsIndex(Model model) {
+        List<Post> posts = new ArrayList<Post>();
+//        posts.add();
         return "posts/index";
     }
 
     //    MAKE SHOW THAT WILL SHOW INDIVIDUAL POSTS
 //    WHEN POST IS PICKED FROM VIEW (give href with integer in .html), REDIRECT TO POSTS/SHOW, THEN display post info on .html
-    @GetMapping( "/posts/{post}")
-    public String postsShow(@PathVariable String post, Model model) {
-        model.addAttribute("post", post);
+    @GetMapping( "/posts/post1")
+    public String postsShow(Model model) {
         model.addAttribute("post1", new Post(
                 "Individual Post Title",
                 "individual Post Body")

@@ -7,5 +7,4 @@ public interface AdRepository extends JpaRepository <Ad, Long> {
 
 
 
-
 }

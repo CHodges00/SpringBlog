@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"><head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
     <meta charset="UTF-8">
     <title>Ad</title>
 </head>
@@ -7,9 +8,12 @@
 <h1>Ad page!</h1>
 
 <div th:each="ad : ${ads}">
+    <h1 th:text="${ad.id}"></h1>
     <h1 th:text="${ad.title}"></h1>
     <p th:text="${ad.description}"></p>
+    <br>
 </div>
+
 
 </body>
 </html>

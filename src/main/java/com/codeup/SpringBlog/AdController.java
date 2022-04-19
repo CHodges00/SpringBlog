@@ -3,6 +3,7 @@ package com.codeup.SpringBlog;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class AdController {
@@ -15,8 +16,16 @@ public class AdController {
     @GetMapping("/ad")
     public String getAd(Model model){
         model.addAttribute("ads", adDao.findAll());
-        return "/adPage";
+        return "ads/adPage";
     }
+
+    @GetMapping("/ad/single")
+    public String getIndividual(Model model){
+//        model.addAttribute("search", search);
+        model.addAttribute("ad", adDao.findById(1L));
+        return "ads/each";
+    }
+
 
 
 
