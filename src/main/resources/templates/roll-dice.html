@@ -21,18 +21,6 @@
 <br>
 
 
-
-<!--<h1>You picked #<span th:text="${pick}"></span></h1>-->
-<!--<h1>The Random # was<span th:text="${random}"></span></h1>-->
-
-
-<!--<h1><span th:if="${pick == random}">Lucky guess!</span></h1>-->
-<!--<h1><span th:if="${pick != random}">Better Luck next time...</span></h1>-->
-
-
-
-
-
 <div th:switch="${pick}">
     <h1 th:case="null">You haven't picked a number yet..</h1>
     <h1 th:case="${pick}">You picked #<span th:text="${pick}"></span></h1>
