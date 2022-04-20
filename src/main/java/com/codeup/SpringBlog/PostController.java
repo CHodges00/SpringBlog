@@ -34,14 +34,15 @@ public class PostController {
 
     @GetMapping("/posts/create")
     public String postsCreate(Model model){
+        Post post = new Post();
         model.addAttribute("post", new Post());
         return "posts/create";
     }
 
 
     @PostMapping("/posts/create")
-    public String createPost(@RequestParam String body, @RequestParam String title, Model model){
-        postDao.save(new Post(body, title));
+    public String createPost(@ModelAttribute Post post){
+        postDao.save(post);
         return "redirect:/posts";
     }
 
