@@ -27,14 +27,12 @@ public class PostController {
     //    MAKE /SHOW THAT WILL SHOW INDIVIDUAL POSTS
     @GetMapping("/posts/show/{title}")
     public String postsShow(@PathVariable String title, Model model) {
-        model.addAttribute("search", title);
         model.addAttribute("post", postDao.findByTitle(title));
         return "posts/show";
     }
 
     @GetMapping("/posts/create")
     public String postsCreate(Model model){
-        Post post = new Post();
         model.addAttribute("post", new Post());
         return "posts/create";
     }
