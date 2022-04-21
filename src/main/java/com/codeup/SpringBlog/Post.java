@@ -16,12 +16,16 @@ public class Post {
     @Column(nullable = false)
     private String body;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private User owner;
+
 
     public Post(){}
 
-    public Post(String body, String title){
+    public Post(String body, String title, User owner){
         this.title = title;
         this.body = body;
+        this.owner = owner;
     }
 
     public String getTitle() {
@@ -47,5 +51,13 @@ public class Post {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 }

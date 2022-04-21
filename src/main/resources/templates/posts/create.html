@@ -19,6 +19,7 @@
         <label for="body">Description</label>
         <input id="body" th:field="*{body}" class="form-control" type="text">
     </div>
+        <input hidden th:field="*{owner.id}" value="1">
     <button type="submit">Create</button>
 </form>
 
