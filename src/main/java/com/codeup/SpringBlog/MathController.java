@@ -16,6 +16,7 @@ public class MathController {
     }
 
 
+
     @RequestMapping(path = "/subtract/{number}/and/{number2}", method = RequestMethod.GET)
     @ResponseBody
     public int subtract(@PathVariable int number, @PathVariable int number2){
