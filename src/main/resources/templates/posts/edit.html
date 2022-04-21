@@ -10,7 +10,9 @@
 
 <h1>Edit Post Here!</h1>
 
-<form th:action="@{posts/edit}" method="post" th:object="${post}">
+
+<form method="post" th:action="@{/posts/edit}" th:object="${post}">
+    <input hidden th:field="*{id}">
     <div class="form-group">
         <label for="title">Title</label>
         <input id="title" th:field="*{title}" class="form-control" type="text">

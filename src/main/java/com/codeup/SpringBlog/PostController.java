@@ -49,10 +49,19 @@ public class PostController {
     }
 
 
-    @GetMapping("/posts/{id}/edit}")
-    public String postsEdit(@PathVariable String title, Post post){
-        postDao.findByTitle(title);
+    @GetMapping("/posts/{id}/edit")
+    public String postsEdit(@PathVariable long id, Model model){
+        model.addAttribute("post", postDao.getById(id));
         return "posts/edit";
+    }
+
+
+    @PostMapping("/posts/edit")
+    public String updatePost(@ModelAttribute Post post){
+        User user = userDao.findByUsername("User1");
+        post.setOwner(user);
+        postDao.save(post);
+        return "redirect:/posts";
     }
 
 

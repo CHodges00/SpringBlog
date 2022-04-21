@@ -7,10 +7,11 @@
 
 <h1>Here is the one post!</h1>
 
-<div th:each="post : ${post}">
+<div th:object="${post}">
     <h1 th:text="${post.title}"></h1>
     <p th:text="${post.body}"></p>
     <p th:text="${post.owner.email}"></p>
+    <a th:href="@{/posts/{id}/edit(id=${post.id})}"><button>Edit this Post</button></a>
 </div>
 
 </body>
