@@ -16,7 +16,8 @@ public class Post {
     @Column(nullable = false)
     private String body;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
     private User owner;
 
 
