@@ -48,5 +48,13 @@ public class PostController {
         return "redirect:/posts";
     }
 
+
+    @GetMapping("/posts/{id}/edit}")
+    public String postsEdit(@PathVariable String title, Post post){
+        postDao.findByTitle(title);
+        return "posts/edit";
+    }
+
+
 }
 
