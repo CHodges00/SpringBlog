@@ -11,9 +11,11 @@ import java.util.List;
 public class PostController {
 
     private final PostRepository postDao;
+    private final UserRepository userDao;
 
-    public PostController(PostRepository postDao){
+    public PostController(PostRepository postDao, UserRepository userDao){
         this.postDao = postDao;
+        this.userDao = userDao;
     }
 
 
@@ -40,6 +42,8 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String createPost(@ModelAttribute Post post){
+        User user = userDao.findByUsername("User1");
+        post.setOwner(user);
         postDao.save(post);
         return "redirect:/posts";
     }
