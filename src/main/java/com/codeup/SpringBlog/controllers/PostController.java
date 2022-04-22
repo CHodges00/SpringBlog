@@ -5,6 +5,7 @@ import com.codeup.SpringBlog.models.User;
 import com.codeup.SpringBlog.repositories.PostRepository;
 import com.codeup.SpringBlog.repositories.UserRepository;
 import com.codeup.SpringBlog.services.EmailService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -46,8 +47,7 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String createPost(@ModelAttribute Post post){
-        User user = userDao.findByUsername("User1");
-        post.setOwner(user);
+        post.setOwner((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         emailService.prepareAndSend(post, "Email for your post creation", "Your Post with title >" + post.getTitle() + "< with a body of >" + post.getBody() + "< has been created !");
         postDao.save(post);
         return "redirect:/posts";
@@ -63,8 +63,6 @@ public class PostController {
 
     @PostMapping("/posts/edit")
     public String updatePost(@ModelAttribute Post post){
-        User user = userDao.findByUsername("User1");
-        post.setOwner(user);
         postDao.save(post);
         return "redirect:/posts";
     }
