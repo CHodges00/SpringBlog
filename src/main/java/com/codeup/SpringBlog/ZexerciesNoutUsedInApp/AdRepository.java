@@ -1,8 +1,6 @@
-package com.codeup.SpringBlog;
+package com.codeup.SpringBlog.ZexerciesNoutUsedInApp;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.util.List;
 
 //                                               < ENTITY  , ID >
 public interface AdRepository extends JpaRepository <Ad, Long> {

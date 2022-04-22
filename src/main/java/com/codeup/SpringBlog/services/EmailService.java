@@ -1,5 +1,6 @@
-package com.codeup.SpringBlog;
+package com.codeup.SpringBlog.services;
 
+import com.codeup.SpringBlog.models.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailException;

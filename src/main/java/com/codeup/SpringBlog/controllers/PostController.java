@@ -1,11 +1,13 @@
-package com.codeup.SpringBlog;
+package com.codeup.SpringBlog.controllers;
 
+import com.codeup.SpringBlog.models.Post;
+import com.codeup.SpringBlog.models.User;
+import com.codeup.SpringBlog.repositories.PostRepository;
+import com.codeup.SpringBlog.repositories.UserRepository;
+import com.codeup.SpringBlog.services.EmailService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class PostController {

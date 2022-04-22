@@ -1,4 +1,4 @@
-package com.codeup.SpringBlog;
+package com.codeup.SpringBlog.ZexerciesNoutUsedInApp;
 
 
 import org.springframework.stereotype.Controller;
