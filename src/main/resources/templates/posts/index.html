@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials :: head"/>
-<head>
-    <meta charset="UTF-8">
-    <title>Posts Index</title>
-</head>
-<body>
+
+<head th:replace="partials :: head"/></head>
 <header th:replace="partials::header"/>
 
 <div class="postCards" th:each="post : ${posts}">
@@ -18,5 +12,3 @@
 
 
 <footer th:replace="partials::footer"/>
-</body>
-</html>

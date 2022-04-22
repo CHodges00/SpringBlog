@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials :: head"/><head>
-    <meta charset="UTF-8">
-    <title th:text="${post.title}"></title>
-</head>
-<body>
+
+<head th:replace="partials :: head"/><head></head>
 <header th:replace="partials :: header"/>
+
+
 <div class="container-fluid">
     <h3 th:text="${post.title}"/>
     <p th:text="${post.body}"/>
     <p th:text="${post.owner.email}"/>
 </div>
+
+
 <footer th:replace="partials::footer"/>
-</body>
-</html>
