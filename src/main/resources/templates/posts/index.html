@@ -1,26 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
+<head th:replace="partials :: head"/>
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
+    <title>Posts Index</title>
 </head>
-
 <body>
-<h1>Landing page for Posts</h1>
+<header th:replace="partials::header"/>
 
-<a href="/posts/create"><h2>Create your own post here!</h2></a>
-
-<h1>Here are all the posts!</h1>
-<br>
-
-<div th:each="post : ${posts}">
-    <a th:href="@{/posts/show/{title}(title=${post.title})}"><h3>See this post by itself</h3></a>
-    <h1 th:text="${post.title}"></h1>
-    <p th:text="${post.body}"></p>
-
-    <br>
+<div class="postCards" th:each="post : ${posts}">
+    <div class="card">
+        <a th:href="@{/posts/{id}/edit(id=${post.id})}"><h3>Edit this post</h3></a>
+        <h3 th:text="${post.title}"/>
+        <p th:text="${post.body}"/>
+    </div>
 </div>
 
+
+<footer th:replace="partials::footer"/>
 </body>
 </html>

@@ -32,9 +32,9 @@ public class PostController {
     }
 
     //    MAKE /SHOW THAT WILL SHOW INDIVIDUAL POSTS
-    @GetMapping("/posts/show/{title}")
-    public String postsShow(@PathVariable String title, Model model) {
-        model.addAttribute("post", postDao.findByTitle(title));
+    @GetMapping("/posts/{id}")
+    public String postsShow(@PathVariable Long id, Model model) {
+        model.addAttribute("post", postDao.getById(id));
         return "posts/show";
     }
 

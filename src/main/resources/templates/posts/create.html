@@ -1,27 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials :: head"/>
 <head>
     <meta charset="UTF-8">
     <title>Create Post</title>
 </head>
-
 <body>
+<header th:replace="partials::header"/>
+<div class="container-fluid">
+    <h1>Fast Food DB</h1>
+</div>
+<br>
+<br>
+<div class="container-fluid">
+    <form th:action="@{/posts/create}" th:method="post" th:object="${post}">
+        <div th:replace="partials :: createForm"></div>
+    </form>
+</div>
 
-<h1>Create Post Here!</h1>
-
-<form method="post" th:object="${post}">
-    <div class="form-group">
-        <label for="title">Title</label>
-        <input id="title" th:field="*{title}" class="form-control" type="text">
-    </div>
-    <div class="form-group">
-        <label for="body">Description</label>
-        <input id="body" th:field="*{body}" class="form-control" type="text">
-    </div>
-    <button type="submit">Create</button>
-</form>
-
-
+<footer th:replace="partials::footer"/>
 </body>
 </html>
