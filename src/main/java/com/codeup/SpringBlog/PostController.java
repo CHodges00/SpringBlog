@@ -46,6 +46,7 @@ public class PostController {
     public String createPost(@ModelAttribute Post post){
         User user = userDao.findByUsername("User1");
         post.setOwner(user);
+        emailService.prepareAndSend(post, "Email about post creation", "Your Post has been created");
         postDao.save(post);
         return "redirect:/posts";
     }
