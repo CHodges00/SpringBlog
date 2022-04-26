@@ -2,6 +2,7 @@
 <head th:replace="partials :: head"/></head>
 <header th:replace="partials::header"/>
 
+
 <div class="postCards" th:each="post : ${posts}">
     <div class="card">
         <a th:href="@{/posts/{id}/edit(id=${post.id})}"><h3>Edit this post</h3></a>
